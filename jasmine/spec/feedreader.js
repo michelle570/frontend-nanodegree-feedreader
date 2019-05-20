@@ -1,13 +1,9 @@
 /* feedreader.js
  *
- * This is the spec file that Jasmine will read and contains
- * all of the tests that will be run against your application.
+ * This is the spec file that Jasmine will read and contains all of the tests that will be run against your application.
  */
 
-/* We're placing all of our tests within the $() function,
- * since some of these tests may require DOM elements. We want
- * to ensure they don't run until the DOM is ready.
- */
+/* We're placing all of our tests within the $() function, since some of these tests may require DOM elements. We want to ensure they don't run until the DOM is ready. */
 $(function() {
     /* This is our first test suite - a test suite just contains
     * a related set of tests. This suite is all about the RSS
@@ -21,38 +17,56 @@ $(function() {
          * allFeeds in app.js to be an empty array and refresh the
          * page?
          */
-        it('are defined', function() {
+        it('Feeds are defined', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
         });
 
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
-         * and that the URL is not empty.
-         */
-
+        /* TODO: Write a test that loops through each feed in the allFeeds object and ensures it has a URL defined and that the URL is not empty. */
+         it('Feed has URLs', function(){
+           for (let feed of allFeeds) {
+              expect(feed.url).toBeDefined();
+              expect(feed.url.length).not.toBe(0);
+            }
+         });
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+         it('Feed has Names', function(){
+           for (let feed of allFeeds) {
+              expect(feed.name).toBeDefined();
+              expect(feed.name.length).not.toBe(0);
+            }
+         });
     });
 
 
     /* TODO: Write a new test suite named "The menu" */
 
-        /* TODO: Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
-         */
+    describe('The Menu', function() {
+      /* TODO: Write a test that ensures the menu element is hidden by default. You'll have to analyze the HTML and the CSS to determine how we're performing the hiding/showing of the menu element. */
+       it('No Menu as Default', function(){
+        let ReaderBody = $('body')[0];
+        // expect(ReaderBody).toHaveClass('menu-hidden');
+        expect(ReaderBody.classList).toContain('menu-hidden');
+       });
 
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
-          */
+
+       /* TODO: Write a test that ensures the menu changes
+        * visibility when the menu icon is clicked. This test
+        * should have two expectations: does the menu display when
+        * clicked and does it hide when clicked again.
+        */
+
+        //A way in this version of jasmine without CLICKING?
+
+    });
+
+
+
 
     /* TODO: Write a new test suite named "Initial Entries" */
 
