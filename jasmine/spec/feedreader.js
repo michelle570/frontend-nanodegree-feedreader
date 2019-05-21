@@ -44,21 +44,25 @@ $(function() {
     /*New test suite named "The menu" */
     describe('The Menu', function() {
       /* Test that ensures the menu element is hidden by default. You'll have to analyze the HTML and the CSS to determine how we're performing the hiding/showing of the menu element. */
+      let ReaderBody = $('body')[0];
+
        it('No Menu as Default', function(){
-        let ReaderBody = $('body')[0];
+
         // expect(ReaderBody).toHaveClass('menu-hidden');
         expect(ReaderBody.classList).toContain('menu-hidden');
        });
 
 
-       /* TODO: Write a test that ensures the menu changes
-        * visibility when the menu icon is clicked. This test
-        * should have two expectations: does the menu display when
-        * clicked and does it hide when clicked again.
-        */
+       /* Test that ensures the menu changes visibility when the menu icon is clicked. This test should have two expectations: does the menu display when  clicked and does it hide when clicked again.   */
+        it('Menu on Click', function(){
+          menuLink = $('.menu-icon-link')[0];
+          menuLink.click();
+          expect(ReaderBody.classList).not.toContain('menu-hidden');
 
-        //A way in this version of jasmine without CLICKING?
-
+          //second click
+          menuLink.click();
+          expect(ReaderBody.classList).toContain('menu-hidden');
+        });
     });
 
 
