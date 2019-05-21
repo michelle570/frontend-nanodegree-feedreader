@@ -78,16 +78,51 @@ $(function() {
        it('loadFeed works', function(done){
         let feedHTML = $('.feed')[0];
         expect(feedHTML.children.length).toBeGreaterThan(0);
+        //FIX TO INCLUDE ENTRY
         done();
        });
-
     });
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
+    /* New test suite named "New Feed Selection" */
+    describe('New Feed Selection', function() {
+      /* TODO: Write a test that ensures when a new feed is loaded
+       * by the loadFeed function that the content actually changes.
+       * Remember, loadFeed() is asynchronous.
+       */
+        let initialFeed;
+        let newFeed;
 
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
+        // beforeEach(function(done){
+        // for (let feed of allFeeds) {
+        //    loadFeed(feed.id, function(){
+        //      let newFeed = $('.feed')[0];
+        //       done();
+        //      });
+        //   }
+        // });
 
+        beforeEach(function(done){
+            loadFeed(0, function(){
+              initialFeed = $('.feed')[0];
+              console.log(initialFeed);
+
+              loadFeed(2, function(){
+                   done();
+              });
+            });
+        });
+
+        // it('loadFeed changes', function(done){
+        //   newFeed = $('.feed')[0];
+        //   expect(initialFeed).not.toEqual(newFeed);
+        //   console.log(initialFeed);
+        //   console.log(newFeed);
+        //
+        // });
+
+        //  afterAll(function() {
+        //  loadFeed(0);
+        //});
+
+    });
 }());
