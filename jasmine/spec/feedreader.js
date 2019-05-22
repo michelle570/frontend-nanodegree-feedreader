@@ -92,37 +92,22 @@ $(function() {
         let initialFeed;
         let newFeed;
 
-        // beforeEach(function(done){
-        // for (let feed of allFeeds) {
-        //    loadFeed(feed.id, function(){
-        //      let newFeed = $('.feed')[0];
-        //       done();
-        //      });
-        //   }
-        // });
-
         beforeEach(function(done){
             loadFeed(0, function(){
-              initialFeed = $('.feed')[0];
-              console.log(initialFeed);
+              initialFeed = $('.feed').html();
+              //console.log(initialFeed);
 
-              loadFeed(2, function(){
-                   done();
+            loadFeed(1, function(){
+                  done();
               });
             });
         });
 
-        // it('loadFeed changes', function(done){
-        //   newFeed = $('.feed')[0];
-        //   expect(initialFeed).not.toEqual(newFeed);
-        //   console.log(initialFeed);
-        //   console.log(newFeed);
-        //
-        // });
-
-        //  afterAll(function() {
-        //  loadFeed(0);
-        //});
-
+        it('loadFeed changes', function(done){
+          newFeed = $('.feed').html();
+          //console.log(newFeed);
+          expect(initialFeed).not.toEqual(newFeed);
+          done();
+        });
     });
 }());
