@@ -5,7 +5,9 @@ This project is for a web-based application that reads RSS feeds. The project ta
 ## How to run application
 GitHub Pages: [Feed Reader Test](https://michelle570.github.io/frontend-nanodegree-feedreader/)
 
-GitHub may still have errors. Locally runs best.
+GitHub pages may display test errors. Make sure the browser is running all scripts. If there is an error, look into the end of the url area and click on the error icon. If it reads "Insecure content blocked" then click on "Load unsafe scripts". Then the page will run with no errors.
+
+If needed run locally.
 
 ### How to Run Locally
 Download the git repository on your local machine. Open up 'index.html' on your preferred browser.
