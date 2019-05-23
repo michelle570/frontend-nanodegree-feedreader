@@ -109,5 +109,9 @@ $(function() {
           expect(initialFeed).not.toEqual(newFeed);
           done();
         });
+
+        afterEach(function(done){
+            loadFeed(0, done);
+        });
     });
 }());
